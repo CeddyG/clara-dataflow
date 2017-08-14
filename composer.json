@@ -1,6 +1,6 @@
 {
     "name": "ceddyg/clara-dataflow",
-    "description": "Repository to generate a CRUD system (Controller, model, repository, view using bootstrap, and more) scanning the shema of the database.",
+    "description": "Repository to create dataflow from the database using query builder.",
     "keywords": ["laravel", "clara", "dataflow", "entity", "xml", "csv", "xls", "export", "import"],
     "authors": [
         {
