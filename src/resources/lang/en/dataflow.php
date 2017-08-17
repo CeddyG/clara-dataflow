@@ -20,5 +20,9 @@ return [
     'separator_csv_line'    => 'Separator csv line',
     'separator_csv_text'    => 'Separator csv text',
     'columns'               => 'Columns',
-    'where_clause'          => 'Where clause'
+    'where_clause'          => 'Where clause',
+    'head'                  => 'Head',
+    'column'                => 'Column',
+    'operator'              => 'Operator',
+    'value'                 => 'Value'
 ];
