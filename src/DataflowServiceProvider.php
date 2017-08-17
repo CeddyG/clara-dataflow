@@ -30,6 +30,13 @@ class DataflowServiceProvider extends ServiceProvider
         $this->publishes([
             $sViews => base_path().'/resources',
         ], 'views');
+
+        // Publish migrations
+        $sMigration = realpath(__DIR__.'/database');
+
+        $this->publishes([
+            $sMigration => base_path().'/database',
+        ], 'migrations');
     }
 
     /**
