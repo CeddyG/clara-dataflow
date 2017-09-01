@@ -57,10 +57,16 @@ abstract class DefaultFormat
     
     public function buildFlow($oItems)
     {
+        $aLines = [];
+        
         foreach ($oItems as $oItem)
         {
-            $this->aLines[] = $this->buildLine($oItem);
+            $aLines[] = $this->buildLine($oItem);
         }
+        
+        $this->aLines = array_merge($this->aLines, $aLines);
+        
+        return $aLines;
     }
     
     /**
