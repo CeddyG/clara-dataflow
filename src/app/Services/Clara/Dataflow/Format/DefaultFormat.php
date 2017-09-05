@@ -159,6 +159,11 @@ abstract class DefaultFormat
     
     protected function getPath()
     {
-        return storage_path('dataflow/exports');
+        if (!is_dir(config('dataflow.path')))
+        {
+            \File::makeDirectory(config('dataflow.path'));
+        }
+        
+        return config('dataflow.path');
     }
 }
