@@ -16,10 +16,10 @@ class Dataflow
     {
         $aRepositories = [];
         
-        $aListRepositories = glob(app_path('Repositories\*'));
+        $aListRepositories = glob(app_path('Repositories'.DIRECTORY_SEPARATOR.'*'));
         foreach ($aListRepositories as $sRepository)
         {
-            $sRepository = substr(strrchr($sRepository, '\\'), 1);
+            $sRepository = substr(strrchr($sRepository, DIRECTORY_SEPARATOR), 1);
             $sRepository = strstr($sRepository, '.php', true);
             
             $aRepositories['App\Repositories\\'.$sRepository] = $sRepository;
