@@ -18,5 +18,15 @@
         "psr-4": {
             "CeddyG\\ClaraDataflow\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CeddyG\\ClaraDataflow\\DataflowServiceProvider"
+            ],
+            "aliases": {
+                "Dataflow": "CeddyG\\ClaraDataflow\\Facades\\Dataflow"
+            }
+        }
     }
 }

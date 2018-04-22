@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Services\Clara\Dataflow;
+namespace CeddyG\ClaraDataflow;
 
-use Facades\App\Repositories\DataflowRepository;
-use App\Exceptions\Clara\Dataflow\FormatException;
+use CeddyG\ClaraDataflow\Repositories\DataflowRepository;
+use CeddyG\ClaraDataflow\Exceptions\FormatException;
 
 class Dataflow
 {    
     protected $aIds         = [];
     protected $oFormat      = null;
+    
     public $oFlow           = null;
     public $oRepository     = null;
 

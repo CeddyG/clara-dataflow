@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CeddyG\ClaraDataflow\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-use Facades\App\Services\Clara\Dataflow\Dataflow;
+use Dataflow;
 
 class DataflowController extends Controller
 {

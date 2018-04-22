@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Clara\Dataflow\Format;
+namespace CeddyG\ClaraDataflow\Format;
 
-use App\Services\Clara\Dataflow\Dataflow;
+use CeddyG\ClaraDataflow\Dataflow;
 
 /**
  * Description of DefaultFormat
@@ -159,11 +159,11 @@ abstract class DefaultFormat
     
     protected function getPath()
     {
-        if (!is_dir(config('dataflow.path')))
+        if (!is_dir(config('clara.dataflow.path')))
         {
-            \File::makeDirectory(config('dataflow.path'));
+            \File::makeDirectory(config('clara.dataflow.path'));
         }
         
-        return config('dataflow.path');
+        return config('clara.dataflow.path');
     }
 }

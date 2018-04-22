@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Clara\Dataflow\Format;
+namespace CeddyG\ClaraDataflow\Format;
 
 /**
  * Description of XlsFormat

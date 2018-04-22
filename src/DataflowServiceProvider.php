@@ -17,26 +17,63 @@ class DataflowServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Publish services
-        $sApp = realpath(__DIR__.'/app');
+        $this->publishesConfig();
+		$this->publishesTranslations();
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+		$this->publishesView();
+        $this->publishesMigrations();
+    }
+    
+    /**
+	 * Publish config file.
+	 * 
+	 * @return void
+	 */
+	private function publishesConfig()
+	{
+		$sConfigPath = __DIR__ . '/../config';
+        if (function_exists('config_path')) 
+		{
+            $sPublishPath = config_path();
+        } 
+		else 
+		{
+            $sPublishPath = base_path();
+        }
+		
+        $this->publishes([$sConfigPath => $sPublishPath], 'clara.dataflow.config');  
+	}
+
+	private function publishesTranslations()
+	{
+		$sTransPath = __DIR__.'/../resources/lang';
 
         $this->publishes([
-            $sApp => base_path().'/app',
-        ], 'services');
+			$sTransPath => resource_path('lang/vendor/clara-dataflow'),
+			'clara.dataflow.trans'
+		]);
+        
+		$this->loadTranslationsFrom($sTransPath, 'clara-dataflow');
+    }
 
-        // Publish views
-        $sViews = realpath(__DIR__.'/resources');
+	private function publishesView()
+	{
+        $sResources = __DIR__.'/../resources/views';
 
         $this->publishes([
-            $sViews => base_path().'/resources',
-        ], 'views');
-
-        // Publish migrations
+            $sResources => resource_path('views/vendor/clara-dataflow'),
+        ], 'clara.dataflow.views');
+        
+        $this->loadViewsFrom($sResources, 'clara-dataflow');
+	}
+    
+    private function publishesMigrations()
+    {
         $sMigration = realpath(__DIR__.'/database');
 
         $this->publishes([
-            $sMigration => base_path().'/database',
-        ], 'migrations');
+            $sMigration => base_path().'/database'
+        ], 'clara.dataflow.migrations');
     }
 
     /**
@@ -46,6 +83,13 @@ class DataflowServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/clara.dataflow.php', 'clara.dataflow'
+        );
+        
+        $this->app->singleton('clara.dataflow', function ($app) 
+		{
+            return new Dataflow();
+        });
     }
 }

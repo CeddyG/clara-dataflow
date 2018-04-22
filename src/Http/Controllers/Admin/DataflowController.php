@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace CeddyG\ClaraDataflow\Http\Controllers\Admin;
 
 use App\Http\Controllers\ContentManagerController;
 
-use App\Repositories\DataflowRepository;
-use Facades\App\Services\Clara\Dataflow\Dataflow;
+use Dataflow;
+use CeddyG\ClaraDataflow\Repositories\DataflowRepository;
 
 class DataflowController extends ContentManagerController
 {

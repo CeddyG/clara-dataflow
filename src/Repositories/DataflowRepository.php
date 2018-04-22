@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace CeddyG\ClaraDataflow\Repositories;
 
 use CeddyG\QueryBuilderRepository\QueryBuilderRepository;
 
