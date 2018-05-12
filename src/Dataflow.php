@@ -80,7 +80,8 @@ class Dataflow
     
     private function setFlow($sToken)
     {
-        $this->oFlow = DataflowRepository::findByField('token', $sToken)->first();
+        $oDataflowRepository    = new DataflowRepository();
+        $this->oFlow            = $oDataflowRepository->findByField('token', $sToken)->first();
         
         $this->oRepository = new $this->oFlow->repository();
         $this->oRepository->setReturnCollection(false);

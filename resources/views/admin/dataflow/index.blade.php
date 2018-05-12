@@ -2,7 +2,7 @@
 
 @section('CSS')
     <!-- DataTables -->
-    <link href="{{ asset("/adminlte/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet" type="text/css" />
+    {!! Html::style('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') !!}
 @stop
 
 @section('content')
@@ -46,8 +46,8 @@
 @endsection
 
 @section('JS')
-    <script src="{{ asset ("/adminlte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
-    <script src="{{ asset ("/adminlte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+    {!! Html::script('bower_components/datatables.net/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') !!}
     
     <script type="text/javascript">
         $(document).ready(function() {

@@ -2,7 +2,7 @@
 
 @section('CSS')
     <!-- Select 2 -->
-    {!! Html::style('/adminlte/plugins/select2/select2.min.css') !!}
+    {!! Html::style('bower_components/select2/dist/css/select2.min.css') !!}
     <style>
         .select2
         {
@@ -60,36 +60,36 @@
                             {!! BootForm::open()->action( url('admin/dataflow') )->post() !!}
                         @endif
                         
-                        {!! BootForm::text(trans('dataflow.name'), 'name') !!}
+                        {!! BootForm::text(trans('clara-dataflow::dataflow.name'), 'name') !!}
                         
                         @if(isset($oItem))
-                            {!! BootForm::select(trans('dataflow.repository'), 'repository')
+                            {!! BootForm::select(trans('clara-dataflow::dataflow.repository'), 'repository')
                                 ->class('select2')
                                 ->options($aRepositories)
                                 ->select($oItem->repository) !!}
                             
-                            {!! BootForm::text(trans('dataflow.separator_csv_column'), 
+                            {!! BootForm::text(trans('clara-dataflow::dataflow.separator_csv_column'), 
                                 'separator_csv[]', 
                                 str_replace(["\t", "\n", "\r"], ["\\t",  "\\n",  "\\r"], $oItem->separator_csv['colonne'])) !!}
-                            {!! BootForm::text(trans('dataflow.separator_csv_line'), 
+                            {!! BootForm::text(trans('clara-dataflow::dataflow.separator_csv_line'), 
                                 'separator_csv[]', 
                                 str_replace(["\t", "\n", "\r"], ["\\t",  "\\n",  "\\r"], $oItem->separator_csv['ligne'])) !!}
-                            {!! BootForm::text(trans('dataflow.separator_csv_text'), 
+                            {!! BootForm::text(trans('clara-dataflow::dataflow.separator_csv_text'), 
                                 'separator_csv[]', 
                                 str_replace(["\t", "\n", "\r"], ["\\t",  "\\n",  "\\r"], $oItem->separator_csv['texte'])) !!}
                         @else
-                            {!! BootForm::select(trans('dataflow.repository'), 'repository')
+                            {!! BootForm::select(trans('clara-dataflow::dataflow.repository'), 'repository')
                                 ->class('select2')
                                 ->options($aRepositories) !!}
                                 
-                            {!! BootForm::text(trans('dataflow.separator_csv_column'), 'separator_csv[]') !!}
-                            {!! BootForm::text(trans('dataflow.separator_csv_line'), 'separator_csv[]') !!}
-                            {!! BootForm::text(trans('dataflow.separator_csv_text'), 'separator_csv[]') !!}
+                            {!! BootForm::text(trans('clara-dataflow::dataflow.separator_csv_column'), 'separator_csv[]') !!}
+                            {!! BootForm::text(trans('clara-dataflow::dataflow.separator_csv_line'), 'separator_csv[]') !!}
+                            {!! BootForm::text(trans('clara-dataflow::dataflow.separator_csv_text'), 'separator_csv[]') !!}
                         @endif
                         
                         <div class="form-group">
                             <label>
-                                {{ str_plural(trans('dataflow.column')) }}
+                                {{ trans('clara-dataflow::dataflow.columns') }}
                             </label>
                         
                             <button id="add-line-column" class="btn btn-default pull-right" type="button">
@@ -100,8 +100,8 @@
                                 <thead>
                                     <tr>
                                         <td></td>
-                                        <td>{{ trans('dataflow.head') }}</td>
-                                        <td>{{ trans('dataflow.column') }}</td>
+                                        <td>{{ trans('clara-dataflow::dataflow.head') }}</td>
+                                        <td>{{ trans('clara-dataflow::dataflow.column') }}</td>
                                         <td class="del-action"></td>
                                     </tr>
                                 </thead>
@@ -155,7 +155,7 @@
                         
                         <div class="form-group">
                             <label>
-                                {{ trans('dataflow.where_clause') }}
+                                {{ trans('clara-dataflow::dataflow.where_clause') }}
                             </label>
                             
                             <button id="add-line-clause" class="btn btn-default pull-right" type="button">
@@ -166,9 +166,9 @@
                                 <thead>
                                     <tr>
                                         <td></td>
-                                        <td>{{ trans('dataflow.column') }}</td>
-                                        <td>{{ trans('dataflow.operator') }}</td>
-                                        <td>{{ trans('dataflow.value') }}</td>
+                                        <td>{{ trans('clara-dataflow::dataflow.column') }}</td>
+                                        <td>{{ trans('clara-dataflow::dataflow.operator') }}</td>
+                                        <td>{{ trans('clara-dataflow::dataflow.value') }}</td>
                                         <td class="del-action"></td>
                                     </tr>
                                 </thead>
@@ -242,7 +242,7 @@
 @section('JS')
     
     <!-- Select 2 -->
-    {!! Html::script('/adminlte/plugins/select2/select2.full.min.js') !!}
+    {!! Html::script('bower_components/select2/dist/js/select2.full.min.js') !!}
     
     <script type="text/javascript">
         $(document).ready(function() {

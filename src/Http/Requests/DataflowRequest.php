@@ -16,9 +16,9 @@ class DataflowRequest extends FormRequest
         return true;
     }
     
-    public function all()
+    public function all($keys = null)
     {
-        $attributes = parent::all();
+        $attributes = parent::all($keys);
 
         if (is_array($attributes['separator_csv']))
         {

@@ -11,11 +11,11 @@ class DataflowController extends ContentManagerController
 {
     public function __construct(DataflowRepository $oRepository)
     {
-        $this->sPath = 'admin/dataflow';
+        $this->sPath = 'clara-dataflow::admin.dataflow';
         $this->sName = 'Dataflow';
         
         $this->oRepository = $oRepository;
-        $this->sRequest = 'App\Http\Requests\DataflowRequest';
+        $this->sRequest = 'CeddyG\ClaraDataflow\Http\Requests\DataflowRequest';
     } 
     
     /**

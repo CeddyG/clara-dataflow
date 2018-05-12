@@ -161,7 +161,7 @@ abstract class DefaultFormat
     {
         if (!is_dir(config('clara.dataflow.path')))
         {
-            \File::makeDirectory(config('clara.dataflow.path'));
+            \File::makeDirectory(config('clara.dataflow.path'), 0755, true);
         }
         
         return config('clara.dataflow.path');
