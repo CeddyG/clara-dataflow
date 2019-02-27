@@ -7,12 +7,12 @@ return [
     'route' => [
         
         'web' => [
-            'prefix'    => '',
-            'middleware' => 'web'
+            'prefix'    => 'admin',
+            'middleware' => ['web', \CeddyG\ClaraSentinel\Http\Middleware\SentinelAccessMiddleware::class]
         ],
         'api' => [
-            'prefix'    => '',
-            'middleware' => 'api'
+            'prefix'    => 'api/admin',
+            'middleware' => ['api', \CeddyG\ClaraSentinel\Http\Middleware\SentinelAccessMiddleware::class.':api']
         ]
     ],
     

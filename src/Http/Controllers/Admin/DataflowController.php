@@ -2,7 +2,7 @@
 
 namespace CeddyG\ClaraDataflow\Http\Controllers\Admin;
 
-use App\Http\Controllers\ContentManagerController;
+use CeddyG\Clara\Http\Controllers\ContentManagerController;
 
 use Dataflow;
 use CeddyG\ClaraDataflow\Repositories\DataflowRepository;
