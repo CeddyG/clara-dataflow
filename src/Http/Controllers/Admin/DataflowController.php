@@ -5,6 +5,7 @@ namespace CeddyG\ClaraDataflow\Http\Controllers\Admin;
 use CeddyG\Clara\Http\Controllers\ContentManagerController;
 
 use Dataflow;
+use Illuminate\Http\Request;
 use CeddyG\ClaraDataflow\Repositories\DataflowRepository;
 
 class DataflowController extends ContentManagerController
@@ -38,7 +39,7 @@ class DataflowController extends ContentManagerController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $oRequest)
     {
         $oItem = $this->oRepository
             ->getFillFromView($this->sPath.'/form')
