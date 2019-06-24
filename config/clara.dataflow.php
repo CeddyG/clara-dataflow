@@ -11,6 +11,10 @@ return [
             'middleware' => ['web', \CeddyG\ClaraSentinel\Http\Middleware\SentinelAccessMiddleware::class]
         ],
         'api' => [
+            'prefix'    => 'api',
+            'middleware' => ['api']
+        ],
+        'api-admin' => [
             'prefix'    => 'api/admin',
             'middleware' => ['api', \CeddyG\ClaraSentinel\Http\Middleware\SentinelAccessMiddleware::class.':api']
         ]

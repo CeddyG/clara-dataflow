@@ -34,13 +34,17 @@ class XlsxFormat extends DefaultFormat
         }
         else
         {
-            return $this->createFlow();
+            $this->createFlow();
+            
+            return $this->oFile->export($this->sFormat);
         }
     }
 
     public function buildResponse()
     {
-        $this->oFile->store($this->sFormat, $this->getPath())->export($this->sFormat);
+        $this->oFile->store($this->sFormat, $this->getPath());
+        
+        return 'File generated';
     }
     
     public function buildFlow($oItems)
