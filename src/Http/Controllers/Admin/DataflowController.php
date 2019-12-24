@@ -6,17 +6,16 @@ use CeddyG\Clara\Http\Controllers\ContentManagerController;
 
 use Dataflow;
 use Illuminate\Http\Request;
-use CeddyG\ClaraDataflow\Repositories\DataflowRepository;
 
 class DataflowController extends ContentManagerController
 {
-    public function __construct(DataflowRepository $oRepository)
+    public function __construct()
     {
         $this->sPath = 'clara-dataflow::admin.dataflow';
         $this->sName = 'Dataflow';
         
-        $this->oRepository = $oRepository;
-        $this->sRequest = 'CeddyG\ClaraDataflow\Http\Requests\DataflowRequest';
+        $this->oRepository  = app(config('clara.dataflow.repository'));
+        $this->sRequest     = config('clara.dataflow.formrequest');
     } 
     
     /**

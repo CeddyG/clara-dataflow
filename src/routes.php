@@ -6,7 +6,7 @@ Route::group([
 ], 
 function()
 {
-    Route::resource('dataflow', 'CeddyG\ClaraDataflow\Http\Controllers\Admin\DataflowController', ['names' => 'admin.dataflow']);
+    Route::resource('dataflow', config('clara.dataflow.controller-admin'), ['names' => 'admin.dataflow']);
 });
 
 Route::group([
@@ -15,8 +15,8 @@ Route::group([
 ], 
 function()
 {
-    Route::get('dataflow/index/ajax', 'CeddyG\ClaraDataflow\Http\Controllers\Admin\DataflowController@indexAjax')->name('admin.dataflow.index.ajax');
-	Route::get('dataflow/select/ajax', 'CeddyG\ClaraDataflow\Http\Controllers\Admin\DataflowController@selectAjax')->name('admin.dataflow.select.ajax');
+    Route::get('dataflow/index/ajax', config('clara.dataflow.controller-admin').'@indexAjax')->name('admin.dataflow.index.ajax');
+	Route::get('dataflow/select/ajax', config('clara.dataflow.controller-admin').'@selectAjax')->name('admin.dataflow.select.ajax');
 });
 
 Route::group([
@@ -25,5 +25,5 @@ Route::group([
 ], 
 function()
 {
-    Route::get('dataflow/{format}/{token}/{param?}', 'CeddyG\ClaraDataflow\Http\Controllers\DataflowController@index')->name('api.dataflow');
+    Route::get('dataflow/{format}/{token}/{param?}', config('clara.dataflow.controller').'@index')->name('api.dataflow');
 });
