@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "illuminate/support": "~6.0",
+        "illuminate/support": "^6.0|^7.0",
         "maatwebsite/excel": "~2.1.0",
         "ceddyg/query-builder-repository": "^1.2"
     },
