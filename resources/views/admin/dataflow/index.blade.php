@@ -54,7 +54,10 @@
             $('#tab-admin').DataTable({
                 serverSide: true,
                 ajax: {
-                    'url': '{{ route('admin.dataflow.index.ajax') }}'
+                    'url': '{{ route('admin.dataflow.index.ajax') }}',
+                    headers: {
+                        "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                    }
                 },
                 columns: [
                     { 'data': 'id_dataflow' },
